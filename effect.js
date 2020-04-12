@@ -21,7 +21,8 @@ $('document').ready(function(){
 		});
 
 	$('#turn_on').click(function(){
-		
+		var audio = $('.song')[0];
+        audio.play();
 		$('#bulb_yellow').addClass('bulb-glow-yellow');
 		$('#bulb_red').addClass('bulb-glow-red');
 		$('#bulb_blue').addClass('bulb-glow-blue');
@@ -37,9 +38,8 @@ $('document').ready(function(){
 		$('#bulb_orange').addClass('bulb-glow-orange-after');
 		$('body').css('backgroud-color','#FFF');
 		$('body').addClass('peach-after');
-		$(this).fadeOut('slow').delay(4000).promise().done(function(){
-			var audio = $('.song')[0];
-                        audio.play();
+		$(this).fadeOut('slow').delay(2000).promise().done(function(){
+			
 			$('.bannar').addClass('bannar-come');
 		        $(this).fadeOut('slow').delay(5000).promise().done(function(){
 				
@@ -166,19 +166,20 @@ $('document').ready(function(){
 
 		function msgLoop (i) {
 			vw = $(window).width()/2;
-			$("p:nth-child("+i+")").fadeOut('slow').delay(1800).promise().done(function(){
+			$("p:nth-child("+i+")").fadeOut(3000).delay(1500).promise().done(function(){
 			i=i+1;
-			$("p:nth-child("+i+")").fadeIn('slow').delay(1500);
+			$("p:nth-child("+i+")").fadeIn(3000).delay(5000);
 			if(i==50){
-				$("p:nth-child(49)").fadeOut('slow').promise().done(function () {
-					$("p:nth-child("+i+")").fadeIn('slow').delay(1800);
+				$("p:nth-child(49)").fadeOut(3000).promise().done(function () {
+					$("p:nth-child("+i+")").fadeIn(3000).delay(1800);
 					
-					$(this).fadeOut('slow').delay(3000).promise().done(function(){
+					$(this).fadeOut('slow').delay(1500).promise().done(function(){
 					$('#b1,#b2,#b3,#b4,#b5,#b6,#b7').hide();
 					$('#b11,#b22,#b33,#b44,#b55,#b66,#b77').hide();
 						$('.balloons').fadeOut('fast').promise().done(function () {
 								 $('.balloons h2').fadeOut('fast');
-							         $('body').removeClass('peach-after');
+									 $('body').removeClass('peach-after');
+									 $('.bannar').removeClass('bannar-come');
 								 $('.gifimage').fadeIn(2000);
 								  $('.gifimage').fadeOut(4000).promise().done(function () { 
 									$('body').addClass('peach-after');
@@ -234,26 +235,7 @@ $('document').ready(function(){
 		 $('.collage').fadeIn(2000).promise().done(function(){
 			 $('.picmsg').fadeIn(3000).promise().done(function(){
 				 $("#pic_msg").fadeIn('fast').delay(3000).promise().done(function() { 
-					$("#pic_msg").fadeOut(4000).delay(3000).promise().done(function(){ 
-					 $('.collage').fadeOut(5000).delay(1000).promise().done(function () { 
-
-					  $('.lastpic').fadeIn(2000).promise().done(function() { 
-						  $('.lastgreet').fadeIn(1000).promise().done(function(){
-							 $("#firstmsg").fadeIn('fast').delay(4000).promise().done(function(){
-								$("#firstmsg").fadeOut('slow').delay(1000).promise().done(function(){ 
-								$("#secondmsg").fadeIn('fast').delay(3000).promise().done(function(){
-								$("#secondmsg").fadeOut('slow').delay(1000).promise().done(function(){
-									$("#thirdmsg").fadeIn('fast');
-								});
-									});
-								});
-							 });      
-						  });
-
-					  });
-
-					 });
-					});
+					
 				});
 			 });
 		 });
